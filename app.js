@@ -16,9 +16,8 @@ app.use(cors());
 
 // Connect to MongoDB
 await connectDB();
-// Book API
 
-// POST: create new book
+// Book API
 
 app.use("/api/book", bookRouter);
 

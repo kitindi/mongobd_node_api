@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import bookModel from "../model/book.js";
+import authorModel from "../model/author.js";
 
 // Create a new bookModel
 export const createbook = async (req, res) => {
@@ -7,7 +8,7 @@ export const createbook = async (req, res) => {
     const { title, author, genre, publishedDate, summary } = req.body;
     const newBook = new bookModel({
       title,
-      author,
+      author: { name: author.name, country: author.country },
       genre,
       publishedDate,
       summary,
@@ -22,7 +23,7 @@ export const createbook = async (req, res) => {
 export const getBook = async (req, res) => {
   try {
     const books = await bookModel.find();
-    res.status(200).json(boos);
+    res.status(200).json(books);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
