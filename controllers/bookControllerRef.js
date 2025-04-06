@@ -8,7 +8,7 @@ export const createbook = async (req, res) => {
     const { title, author, genre, publishedDate, summary } = req.body;
     const newBook = new bookModel({
       title,
-      author: { name: author.name, country: author.country },
+      author,
       genre,
       publishedDate,
       summary,

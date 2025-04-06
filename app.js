@@ -4,6 +4,7 @@ import "dotenv/config";
 import cors from "cors";
 import bookModel from "./model/book.js";
 import bookRouter from "./routes/bookRoutes.js";
+import authorRouter from "./routes/authorRoutes.js";
 
 const app = express();
 
@@ -20,6 +21,10 @@ await connectDB();
 // Book API
 
 app.use("/api/book", bookRouter);
+
+// Author API
+
+app.use("/api/author", authorRouter);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT} via http://localhost:${PORT}`);
